@@ -32,7 +32,13 @@ export class AuthService {
   }
 
   // login methode :
-
+  login(email: string, password: string): Observable<string>{
+    let payload = {
+      email: email,
+      password: password
+    }
+    return this.http.post<string>(this._url + 'authenticate', payload)
+  }
 
   // login methode :
 
