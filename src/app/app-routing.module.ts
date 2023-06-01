@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {SuccessComponent} from "./view/success/success.component";
+import {RegisterComponent} from "./view/register/register.component";
 
 const routes: Routes = [
   { path: 'success', component: SuccessComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }, // Redirect to the login page by default
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

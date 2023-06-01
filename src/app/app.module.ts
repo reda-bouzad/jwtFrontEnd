@@ -7,12 +7,18 @@ import { LoginComponent } from './view/login/login.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { SuccessComponent } from './view/success/success.component';
+import { LogoutComponent } from './view/logout/logout.component';
+import { RegisterComponent } from './view/register/register.component';
+import { NavbarComponent } from './view/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     AppComponent,
-    SuccessComponent
+    SuccessComponent,
+    LogoutComponent,
+    RegisterComponent,
+    NavbarComponent
   ],
     imports: [
         BrowserModule,

@@ -1,0 +1,46 @@
+<div class="container">
+
+  <h3 class="text-center"> Register </h3>
+
+  <div class="card">
+
+    <div class="row">
+
+      <div class="col col-4">
+        <input [(ngModel)]="firstName" type="text" placeholder="first name">
+      </div>
+
+      <div class="col col-4">
+        <input [(ngModel)]="lastName" type="text" placeholder="last name">
+      </div>
+
+      <div class="col col-4">
+        <input [(ngModel)]="email" type="text" placeholder="email">
+      </div>
+
+    </div>
+
+    <div class="row">
+
+
+      <div class="col col-4">
+        <input [(ngModel)]="role" type="text" placeholder="role">
+      </div>
+
+      <div class="col col-4">
+        <input [(ngModel)]="password" type="text" placeholder="password">
+      </div>
+
+      <div (click)="register()" class="btn btn-success my-btn">
+        save
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</div>
+
+
