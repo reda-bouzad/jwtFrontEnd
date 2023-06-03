@@ -13,8 +13,7 @@ export class AuthService {
 
   // Variables :
   private _url= "http://localhost:8036/api/v1/auth/";
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
-  currentUser = {}; // I will probably delete this later
+  private token: string;
 
   // Constructor :
   constructor(private http: HttpClient, public router: Router) {}
@@ -31,16 +30,38 @@ export class AuthService {
     return this.http.post<string>(this._url + 'register' , payload);
   }
 
+  // get token from the database:
+  getTokenDb(email: string): Observable<string>{
+    return this.http.get(this._url + 'token/' + email, {responseType: 'text'});
+  }
+
+  // check if the user is logged in :
+  isLoggedIn(): boolean {
+    let authToken = localStorage.getItem(this.token);
+    return authToken !== null;
+  }
+
+
   // login methode :
   login(email: string, password: string): Observable<string>{
+
+    this.getTokenDb(email).subscribe(
+      data => localStorage.setItem(this.token, data)
+    );
+
     let payload = {
       email: email,
       password: password
     }
+
     return this.http.post<string>(this._url + 'authenticate', payload)
   }
 
-  // login methode :
+  // get token from the local storage
+  getTokenLocalStorage(){
+    return localStorage.getItem(this.token);
+  }
+
 
 
 

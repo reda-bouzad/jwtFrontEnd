@@ -1,16 +1,17 @@
 <div class="container my-container">
-<div class="card">
-  <h3 class="text-center"> Login </h3>
+  <div class="card">
 
+    <h3 class="text-center"> Login </h3>
 
-      <input class="my-input" [(ngModel)]="email" placeholder="email" type="text">
+    <input [(ngModel)]="email" class="my-input" placeholder="email" type="text">
 
-      <input class="my-input" [(ngModel)]="password" placeholder="password" type="text">
+    <input [(ngModel)]="password" class="my-input" placeholder="password" type="text">
 
-    <div (click)="login()" class="btn btn-success my-btn">
-    login
+    <div (click)="login()" class="btn btn-success my-btn"> login</div>
+
+    <div class="btn btn-warning my-btn" routerLink="/register"> register</div>
+
   </div>
-</div>
 
 </div>
 

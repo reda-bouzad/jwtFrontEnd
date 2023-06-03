@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { AuthService } from "../../service/auth.service";
 
 @Component({
@@ -6,7 +6,7 @@ import { AuthService } from "../../service/auth.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent{
 
   // Variables
   email: string = "";
@@ -15,7 +15,17 @@ export class LoginComponent {
   constructor(private authService: AuthService) {}
 
 
-  login() {
 
+  login() {
+    this.authService.login(this.email, this.password).subscribe(
+      () => {
+        this.authService.router.navigate(['/success']);
+        this.authService.isLoggedIn();
+      },
+      (error) => {
+        // Handle error, such as displaying an error message
+      }
+    );
   }
+
 }
